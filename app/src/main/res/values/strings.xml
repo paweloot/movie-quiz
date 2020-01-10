@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Quiz</string>
+    <string name="start_learning">Start learning</string>
+    <string name="photo_description">Photo of a celebrity</string>
+</resources>

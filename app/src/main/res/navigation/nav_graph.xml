@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navigation"
-    app:startDestination="@id/mainFragment">
+    app:startDestination="@id/musicFragment">
 
     <fragment
         android:id="@+id/mainFragment"
@@ -18,5 +18,14 @@
         android:id="@+id/photoFragment"
         android:name="com.paweloot.quiz.ui.learning.PhotoFragment"
         android:label="Famous Celebrities"
-        tools:layout="@layout/photo_fragment" />
+        tools:layout="@layout/photo_fragment">
+        <action
+            android:id="@+id/action_photoFragment_to_musicFragment"
+            app:destination="@id/musicFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/musicFragment"
+        android:name="com.paweloot.quiz.ui.learning.MusicFragment"
+        android:label="Movie Soundtracks"
+        tools:layout="@layout/music_fragment" />
 </navigation>

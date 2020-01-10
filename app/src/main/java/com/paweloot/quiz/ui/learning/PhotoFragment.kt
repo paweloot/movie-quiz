@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.paweloot.quiz.R
 import com.paweloot.quiz.ui.main.MainViewModel
@@ -34,5 +35,10 @@ class PhotoFragment : Fragment() {
 
         photo_list.layoutManager = LinearLayoutManager(context)
         photo_list.adapter = PhotoAdapter(viewModel.photoQuestions)
+
+        next_button.setOnClickListener {
+            findNavController()
+                .navigate(PhotoFragmentDirections.actionPhotoFragmentToMusicFragment())
+        }
     }
 }

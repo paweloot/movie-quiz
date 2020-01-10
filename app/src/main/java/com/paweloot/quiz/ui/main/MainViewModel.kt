@@ -3,6 +3,7 @@ package com.paweloot.quiz.ui.main
 import androidx.lifecycle.ViewModel
 import com.paweloot.quiz.entity.PhotoQuestion
 import com.paweloot.quiz.entity.Question
+import com.paweloot.quiz.entity.SoundQuestion
 
 class MainViewModel : ViewModel() {
 
@@ -18,6 +19,14 @@ class MainViewModel : ViewModel() {
         PhotoQuestion(
             "https://www.cheatsheet.com/wp-content/uploads/2019/11/daisy-ridley-in-a-black-dress-1024x763.jpg",
             "Daisy Ridley"
+        )
+    )
+
+    val soundQuestions: List<SoundQuestion> = mutableListOf(
+        SoundQuestion(
+            "La La Land",
+            "https://images-na.ssl-images-amazon.com/images/I/71-u32-oOaL._SY679_.jpg",
+            "city_of_stars.mp3"
         )
     )
 

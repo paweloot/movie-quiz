@@ -28,6 +28,10 @@ android {
     buildFeatures {
         dataBinding = true
     }
+
+    compileOptions {
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
 }
 
 dependencies {
@@ -54,4 +58,9 @@ dependencies {
 
     // Material Components
     implementation "com.google.android.material:material:1.0.0"
+
+    // Exoplayer
+    implementation 'com.google.android.exoplayer:exoplayer-core:2.10.5'
+    implementation 'com.google.android.exoplayer:exoplayer-dash:2.10.5'
+    implementation 'com.google.android.exoplayer:exoplayer-ui:2.10.5'
 }

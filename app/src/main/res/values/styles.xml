@@ -3,7 +3,7 @@
     <style name="AppTheme" parent="Theme.MaterialComponents">
         <item name="colorPrimary">@color/color_primary</item>
         <item name="colorPrimaryDark">@color/color_primary_dark</item>
-        <item name="colorAccent">@color/color_accent</item>
+        <item name="colorAccent">@color/color_accent</item>"
 
         <item name="toolbarStyle">@style/Widget.Custom.Toolbar</item>
         <item name="android:statusBarColor">@color/color_toolbar_black</item>

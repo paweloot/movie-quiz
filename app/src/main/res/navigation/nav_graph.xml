@@ -25,7 +25,7 @@
     </fragment>
     <fragment
         android:id="@+id/musicFragment"
-        android:name="com.paweloot.quiz.ui.learning.MusicFragment"
+        android:name="com.paweloot.quiz.ui.learning.SoundtrackFragment"
         android:label="Movie Soundtracks"
         tools:layout="@layout/music_fragment" />
 </navigation>

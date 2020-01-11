@@ -6,8 +6,8 @@
     <data>
 
         <variable
-            name="soundQuestion"
-            type="com.paweloot.quiz.entity.SoundQuestion" />
+            name="soundtrackQuestion"
+            type="com.paweloot.quiz.entity.SoundtrackQuestion" />
     </data>
 
     <androidx.cardview.widget.CardView
@@ -30,7 +30,7 @@
                 android:layout_height="0dp"
                 android:contentDescription="@string/photo_description"
                 android:scaleType="centerCrop"
-                app:imageUrl="@{soundQuestion.movieArtUrl}"
+                app:imageUrl="@{soundtrackQuestion.movieArtUrl}"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/guideline"
                 app:layout_constraintStart_toStartOf="parent"
@@ -44,7 +44,7 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="16dp"
-                android:text="@{soundQuestion.soundtrackTitle}"
+                android:text="@{soundtrackQuestion.soundtrackTitle}"
                 android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
                 android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -56,7 +56,7 @@
                 android:id="@+id/textView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@{soundQuestion.movieTitle + ` (`+soundQuestion.year+`)`}"
+                android:text="@{soundtrackQuestion.movieTitle + ` (`+soundtrackQuestion.year+`)`}"
                 android:textAppearance="@style/TextAppearance.MaterialComponents.Caption"
                 app:layout_constraintStart_toStartOf="@+id/soundtrackTitle"
                 app:layout_constraintTop_toBottomOf="@+id/soundtrackTitle"

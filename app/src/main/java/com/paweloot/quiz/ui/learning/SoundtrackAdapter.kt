@@ -1,18 +1,17 @@
 package com.paweloot.quiz.ui.learning
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageButton
 import androidx.recyclerview.widget.RecyclerView
 import com.paweloot.quiz.databinding.ListItemSoundtrackBinding
-import com.paweloot.quiz.entity.SoundQuestion
+import com.paweloot.quiz.entity.SoundtrackQuestion
 
-class MusicAdapter(
-    private val soundQuestions: List<SoundQuestion>,
-    private val callback: (button: ImageButton, soundQuestion: SoundQuestion) -> Unit
+class SoundtrackAdapter(
+    private val soundtrackQuestions: List<SoundtrackQuestion>,
+    private val callback: (button: ImageButton, soundtrackQuestion: SoundtrackQuestion) -> Unit
 ) :
-    RecyclerView.Adapter<MusicAdapter.MusicHolder>() {
+    RecyclerView.Adapter<SoundtrackAdapter.MusicHolder>() {
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MusicHolder {
@@ -25,17 +24,17 @@ class MusicAdapter(
     }
 
     override fun onBindViewHolder(holder: MusicHolder, position: Int) {
-        holder.binding.soundQuestion = soundQuestions[position]
+        holder.binding.soundtrackQuestion = soundtrackQuestions[position]
     }
 
-    override fun getItemCount() = soundQuestions.size
+    override fun getItemCount() = soundtrackQuestions.size
 
     inner class MusicHolder(val binding: ListItemSoundtrackBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
         init {
             binding.playPauseButton.setOnClickListener {
-                callback(binding.playPauseButton, binding.soundQuestion!!)
+                callback(binding.playPauseButton, binding.soundtrackQuestion!!)
             }
         }
     }

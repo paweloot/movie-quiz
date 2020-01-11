@@ -3,7 +3,6 @@ package com.paweloot.quiz.ui.learning
 import android.net.Uri
 import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -17,14 +16,14 @@ import com.google.android.exoplayer2.source.ProgressiveMediaSource
 import com.google.android.exoplayer2.upstream.AssetDataSource
 import com.google.android.exoplayer2.upstream.DataSource
 import com.paweloot.quiz.R
-import com.paweloot.quiz.entity.SoundQuestion
+import com.paweloot.quiz.entity.SoundtrackQuestion
 import com.paweloot.quiz.ui.main.MainViewModel
 import kotlinx.android.synthetic.main.music_fragment.*
 
-class MusicFragment : Fragment() {
+class SoundtrackFragment : Fragment() {
 
     companion object {
-        fun newInstance() = MusicFragment()
+        fun newInstance() = SoundtrackFragment()
     }
 
     private lateinit var viewModel: MainViewModel
@@ -48,7 +47,7 @@ class MusicFragment : Fragment() {
         viewModel = ViewModelProviders.of(this).get(MainViewModel::class.java)
 
         soundtrack_list.layoutManager = LinearLayoutManager(context)
-        soundtrack_list.adapter = MusicAdapter(viewModel.soundQuestions, this::onSoundtrackClicked)
+        soundtrack_list.adapter = SoundtrackAdapter(viewModel.soundtrackQuestions, this::onSoundtrackClicked)
 
         initializePlayer()
     }
@@ -78,7 +77,7 @@ class MusicFragment : Fragment() {
         player.release()
     }
 
-    private fun onSoundtrackClicked(button: ImageButton, soundQuestion: SoundQuestion) {
+    private fun onSoundtrackClicked(button: ImageButton, soundtrackQuestion: SoundtrackQuestion) {
 
         when {
             player.isPlaying -> {
@@ -91,7 +90,7 @@ class MusicFragment : Fragment() {
                 }
                 currentButton = button
 
-                val audioUri = Uri.parse("assets:///${soundQuestion.soundtrackAssetName}")
+                val audioUri = Uri.parse("assets:///${soundtrackQuestion.soundtrackAssetName}")
                 val mediaSource = buildMediaSource(audioUri)
                 startPlayback(mediaSource, reset)
             }

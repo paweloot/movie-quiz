@@ -1,6 +1,6 @@
 package com.paweloot.quiz.entity
 
-data class SoundQuestion(
+data class SoundtrackQuestion(
     val soundtrackTitle: String,
     val soundtrackAssetName: String,
     val movieTitle: String,

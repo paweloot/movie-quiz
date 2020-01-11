@@ -1,13 +1,13 @@
 package com.paweloot.quiz.ui.learning
 
 import android.net.Uri
-import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageButton
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.exoplayer2.ExoPlayerFactory
 import com.google.android.exoplayer2.SimpleExoPlayer
@@ -47,7 +47,8 @@ class SoundtrackFragment : Fragment() {
         viewModel = ViewModelProviders.of(this).get(MainViewModel::class.java)
 
         soundtrack_list.layoutManager = LinearLayoutManager(context)
-        soundtrack_list.adapter = SoundtrackAdapter(viewModel.soundtrackQuestions, this::onSoundtrackClicked)
+        soundtrack_list.adapter =
+            SoundtrackAdapter(viewModel.soundtrackQuestions, this::onSoundtrackClicked)
 
         initializePlayer()
     }
@@ -80,19 +81,26 @@ class SoundtrackFragment : Fragment() {
     private fun onSoundtrackClicked(button: ImageButton, soundtrackQuestion: SoundtrackQuestion) {
 
         when {
-            player.isPlaying -> {
-                stopPlayback()
-            }
-            else -> {
-                var reset = false
-                if (currentButton != null && button != currentButton) {
-                    reset = true
+            currentButton != null && button == currentButton -> {
+                if (player.isPlaying)
+                    stopPlayback()
+                else {
+                    val mediaSource = buildMediaSource(soundtrackQuestion)
+                    startPlayback(mediaSource, false)
                 }
+            }
+            currentButton != null && button != currentButton -> {
+                stopPlayback()
                 currentButton = button
 
-                val audioUri = Uri.parse("assets:///${soundtrackQuestion.soundtrackAssetName}")
-                val mediaSource = buildMediaSource(audioUri)
-                startPlayback(mediaSource, reset)
+                val mediaSource = buildMediaSource(soundtrackQuestion)
+                startPlayback(mediaSource, true)
+            }
+            currentButton == null -> {
+                currentButton = button
+
+                val mediaSource = buildMediaSource(soundtrackQuestion)
+                startPlayback(mediaSource, true)
             }
         }
 
@@ -111,10 +119,11 @@ class SoundtrackFragment : Fragment() {
         currentButton?.setImageResource(R.drawable.exo_controls_play)
     }
 
-    private fun buildMediaSource(uri: Uri): ProgressiveMediaSource? {
+    private fun buildMediaSource(soundtrackQuestion: SoundtrackQuestion): ProgressiveMediaSource? {
+        val audioUri = Uri.parse("assets:///${soundtrackQuestion.soundtrackAssetName}")
         val dataSourceFactory = DataSource.Factory { AssetDataSource(requireActivity()) }
 
         return ProgressiveMediaSource.Factory(dataSourceFactory)
-            .createMediaSource(uri)
+            .createMediaSource(audioUri)
     }
 }

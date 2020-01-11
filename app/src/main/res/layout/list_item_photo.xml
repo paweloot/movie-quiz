@@ -24,7 +24,7 @@
             android:layout_height="match_parent">
 
             <TextView
-                android:id="@+id/answer"
+                android:id="@+id/soundtrackTitle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -46,7 +46,7 @@
                 android:contentDescription="@string/photo_description"
                 android:scaleType="centerCrop"
                 app:imageUrl="@{photoQuestion.photoUrl}"
-                app:layout_constraintBottom_toTopOf="@+id/answer"
+                app:layout_constraintBottom_toTopOf="@+id/soundtrackTitle"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"

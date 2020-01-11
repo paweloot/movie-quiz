@@ -3,4 +3,6 @@
     <string name="start_learning">Start learning</string>
     <string name="photo_description">Photo of a celebrity</string>
     <string name="next_category">Next category</string>
+    <string name="performed_by">Performed by: </string>
+    <string name="play_pause_button">Play/pause button</string>
 </resources>

@@ -3,13 +3,14 @@ package com.paweloot.quiz.ui.learning
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageButton
 import androidx.recyclerview.widget.RecyclerView
 import com.paweloot.quiz.databinding.ListItemSoundtrackBinding
 import com.paweloot.quiz.entity.SoundQuestion
 
 class MusicAdapter(
     private val soundQuestions: List<SoundQuestion>,
-    private val callback: (soundQuestion: SoundQuestion) -> Unit
+    private val callback: (button: ImageButton, soundQuestion: SoundQuestion) -> Unit
 ) :
     RecyclerView.Adapter<MusicAdapter.MusicHolder>() {
 
@@ -33,8 +34,8 @@ class MusicAdapter(
         RecyclerView.ViewHolder(binding.root) {
 
         init {
-            binding.root.setOnClickListener {
-                callback(binding.soundQuestion!!)
+            binding.playPauseButton.setOnClickListener {
+                callback(binding.playPauseButton, binding.soundQuestion!!)
             }
         }
     }

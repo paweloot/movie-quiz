@@ -1,10 +1,9 @@
 package com.paweloot.quiz.entity
 
-import android.widget.ImageView
-import androidx.databinding.BindingAdapter
-
 data class SoundQuestion(
+    val soundtrackTitle: String,
+    val soundtrackAssetName: String,
     val movieTitle: String,
     val movieArtUrl: String,
-    val soundtrackAssetName: String
+    val year: Int
 )

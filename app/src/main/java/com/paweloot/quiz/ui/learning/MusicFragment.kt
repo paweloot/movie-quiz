@@ -8,9 +8,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageButton
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.exoplayer2.ExoPlayerFactory
 import com.google.android.exoplayer2.SimpleExoPlayer
+import com.google.android.exoplayer2.source.MediaSource
 import com.google.android.exoplayer2.source.ProgressiveMediaSource
 import com.google.android.exoplayer2.upstream.AssetDataSource
 import com.google.android.exoplayer2.upstream.DataSource
@@ -27,6 +29,10 @@ class MusicFragment : Fragment() {
 
     private lateinit var viewModel: MainViewModel
     private lateinit var player: SimpleExoPlayer
+
+    private var playWhenReady: Boolean = true
+    private var playbackPosition: Long = 0
+    private var currentButton: ImageButton? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -47,25 +53,63 @@ class MusicFragment : Fragment() {
         initializePlayer()
     }
 
-    private fun initializePlayer() {
-        player = ExoPlayerFactory.newSimpleInstance(requireContext())
+    override fun onResume() {
+        super.onResume()
+
+        initializePlayer()
     }
 
-    private fun onSoundtrackClicked(soundQuestion: SoundQuestion) {
+    override fun onPause() {
+        super.onPause()
+
+        stopPlayback()
+        releasePlayer()
+    }
+
+    private fun initializePlayer() {
+        player = ExoPlayerFactory.newSimpleInstance(requireContext())
+        player.playWhenReady = playWhenReady
+        player.seekTo(playbackPosition)
+    }
+
+    private fun releasePlayer() {
+        playWhenReady = player.playWhenReady
+        playbackPosition = player.currentPosition
+        player.release()
+    }
+
+    private fun onSoundtrackClicked(button: ImageButton, soundQuestion: SoundQuestion) {
 
         when {
             player.isPlaying -> {
-                player.stop()
+                stopPlayback()
             }
             else -> {
+                var reset = false
+                if (currentButton != null && button != currentButton) {
+                    reset = true
+                }
+                currentButton = button
+
                 val audioUri = Uri.parse("assets:///${soundQuestion.soundtrackAssetName}")
                 val mediaSource = buildMediaSource(audioUri)
-
-                player.prepare(mediaSource)
-                player.playWhenReady = true
+                startPlayback(mediaSource, reset)
             }
         }
 
+    }
+
+    private fun startPlayback(mediaSource: MediaSource?, reset: Boolean) {
+        player.prepare(mediaSource, reset, reset)
+        player.playWhenReady = true
+
+        currentButton?.setImageResource(R.drawable.exo_controls_pause)
+    }
+
+
+    private fun stopPlayback() {
+        player.playWhenReady = false
+        currentButton?.setImageResource(R.drawable.exo_controls_play)
     }
 
     private fun buildMediaSource(uri: Uri): ProgressiveMediaSource? {

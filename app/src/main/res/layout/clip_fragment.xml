@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="clipQuestion"
+            type="com.paweloot.quiz.entity.ClipQuestion" />
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:context=".ui.learning.ClipFragment">
+
+            <com.google.android.exoplayer2.ui.PlayerView
+                android:id="@+id/player_view"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/movie_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:text="@{clipQuestion.movieTitle + ` (` + clipQuestion.year + `)`}"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/player_view"
+                tools:text="The Witcher (2019)" />
+
+            <TextView
+                android:id="@+id/director"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@{clipQuestion.director}"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Caption"
+                app:layout_constraintEnd_toEndOf="@+id/movie_title"
+                app:layout_constraintStart_toStartOf="@+id/movie_title"
+                app:layout_constraintTop_toBottomOf="@+id/movie_title"
+                tools:text="Andrzej Sapkowski" />
+
+            <View
+                android:id="@+id/divider"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_marginTop="16dp"
+                android:background="?android:attr/listDivider"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/director" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/clip_list"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginTop="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/divider"
+                tools:listitem="@layout/list_item_clip" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</layout>

@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navigation"
-    app:startDestination="@id/musicFragment">
+    app:startDestination="@id/clipFragment">
 
     <fragment
         android:id="@+id/mainFragment"
@@ -27,5 +27,14 @@
         android:id="@+id/musicFragment"
         android:name="com.paweloot.quiz.ui.learning.SoundtrackFragment"
         android:label="Movie Soundtracks"
-        tools:layout="@layout/music_fragment" />
+        tools:layout="@layout/music_fragment" >
+        <action
+            android:id="@+id/action_musicFragment_to_clipFragment"
+            app:destination="@id/clipFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/clipFragment"
+        android:name="com.paweloot.quiz.ui.learning.ClipFragment"
+        android:label="Movie Clips"
+        tools:layout="@layout/clip_fragment" />
 </navigation>

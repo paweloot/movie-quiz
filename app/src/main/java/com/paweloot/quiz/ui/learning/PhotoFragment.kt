@@ -10,7 +10,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.paweloot.quiz.R
 import com.paweloot.quiz.ui.main.MainViewModel
-import kotlinx.android.synthetic.main.photo_fragment.*
+import kotlinx.android.synthetic.main.fragment_photo.*
 
 class PhotoFragment : Fragment() {
 
@@ -25,7 +25,7 @@ class PhotoFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        return inflater.inflate(R.layout.photo_fragment, container, false)
+        return inflater.inflate(R.layout.fragment_photo, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -34,7 +34,7 @@ class PhotoFragment : Fragment() {
         viewModel = ViewModelProviders.of(requireActivity()).get(MainViewModel::class.java)
 
         photo_list.layoutManager = LinearLayoutManager(context)
-        photo_list.adapter = PhotoAdapter(viewModel.photoQuestions)
+        photo_list.adapter = PhotoAdapter(viewModel.photoAnswers)
 
         next_button.setOnClickListener {
             findNavController()

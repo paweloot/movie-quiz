@@ -3,38 +3,68 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navigation"
-    app:startDestination="@id/clipFragment">
+    app:startDestination="@id/photoQuestionFragment">
 
     <fragment
         android:id="@+id/mainFragment"
         android:name="com.paweloot.quiz.ui.main.MainFragment"
         android:label="QuizApp"
-        tools:layout="@layout/main_fragment">
+        tools:layout="@layout/fragment_main">
         <action
             android:id="@+id/action_mainFragment_to_photoFragment"
-            app:destination="@id/photoFragment" />
+            app:destination="@id/photoFragment"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/slide_out_right" />
     </fragment>
     <fragment
         android:id="@+id/photoFragment"
         android:name="com.paweloot.quiz.ui.learning.PhotoFragment"
         android:label="Famous Celebrities"
-        tools:layout="@layout/photo_fragment">
+        tools:layout="@layout/fragment_photo">
         <action
             android:id="@+id/action_photoFragment_to_musicFragment"
-            app:destination="@id/musicFragment" />
+            app:destination="@id/musicFragment"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/slide_out_right" />
     </fragment>
     <fragment
         android:id="@+id/musicFragment"
         android:name="com.paweloot.quiz.ui.learning.SoundtrackFragment"
         android:label="Movie Soundtracks"
-        tools:layout="@layout/music_fragment" >
+        tools:layout="@layout/fragment_soundtrack">
         <action
             android:id="@+id/action_musicFragment_to_clipFragment"
-            app:destination="@id/clipFragment" />
+            app:destination="@id/clipFragment"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/slide_out_right" />
     </fragment>
     <fragment
         android:id="@+id/clipFragment"
         android:name="com.paweloot.quiz.ui.learning.ClipFragment"
         android:label="Movie Clips"
-        tools:layout="@layout/clip_fragment" />
+        tools:layout="@layout/fragment_clip" />
+    <fragment
+        android:id="@+id/photoQuestionFragment"
+        android:name="com.paweloot.quiz.ui.quiz.PhotoQuestionFragment"
+        android:label="Quiz - Celebrities"
+        tools:layout="@layout/fragment_photo_question">
+        <action
+            android:id="@+id/action_photoQuestionFragment_to_soundtrackQuestionFragment"
+            app:destination="@id/soundtrackQuestionFragment"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/soundtrackQuestionFragment"
+        android:name="com.paweloot.quiz.ui.quiz.SoundtrackQuestionFragment"
+        android:label="Quiz - Soundtrack"
+        tools:layout="@layout/fragment_soundtrack_question" />
 </navigation>

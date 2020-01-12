@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.ImageButton
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.exoplayer2.ExoPlayerFactory
 import com.google.android.exoplayer2.SimpleExoPlayer
@@ -18,7 +19,7 @@ import com.google.android.exoplayer2.upstream.DataSource
 import com.paweloot.quiz.R
 import com.paweloot.quiz.entity.SoundtrackQuestion
 import com.paweloot.quiz.ui.main.MainViewModel
-import kotlinx.android.synthetic.main.music_fragment.*
+import kotlinx.android.synthetic.main.fragment_soundtrack.*
 
 class SoundtrackFragment : Fragment() {
 
@@ -38,7 +39,7 @@ class SoundtrackFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        return inflater.inflate(R.layout.music_fragment, container, false)
+        return inflater.inflate(R.layout.fragment_soundtrack, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -49,6 +50,11 @@ class SoundtrackFragment : Fragment() {
         soundtrack_list.layoutManager = LinearLayoutManager(context)
         soundtrack_list.adapter =
             SoundtrackAdapter(viewModel.soundtrackQuestions, this::onSoundtrackClicked)
+
+        next_button.setOnClickListener {
+            findNavController()
+                .navigate(SoundtrackFragmentDirections.actionMusicFragmentToClipFragment().actionId)
+        }
 
         initializePlayer()
     }

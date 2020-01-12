@@ -5,4 +5,7 @@
     <string name="next_category">Next category</string>
     <string name="performed_by">Performed by: </string>
     <string name="play_pause_button">Play/pause button</string>
+    <string name="guess_the_celebrity">Guess the celebrity</string>
+    <string name="sounds_familiar">Sounds familiar?</string>
+    <string name="play_button">Play button</string>
 </resources>

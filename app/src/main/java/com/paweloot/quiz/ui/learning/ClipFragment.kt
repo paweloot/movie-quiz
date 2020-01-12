@@ -14,10 +14,10 @@ import com.google.android.exoplayer2.source.MediaSource
 import com.google.android.exoplayer2.source.ProgressiveMediaSource
 import com.google.android.exoplayer2.upstream.AssetDataSource
 import com.google.android.exoplayer2.upstream.DataSource
-import com.paweloot.quiz.databinding.ClipFragmentBinding
+import com.paweloot.quiz.databinding.FragmentClipBinding
 import com.paweloot.quiz.entity.ClipQuestion
 import com.paweloot.quiz.ui.main.MainViewModel
-import kotlinx.android.synthetic.main.clip_fragment.*
+import kotlinx.android.synthetic.main.fragment_clip.*
 
 private const val GRID_COL_COUNT = 2
 
@@ -28,7 +28,7 @@ class ClipFragment : Fragment() {
     }
 
     private lateinit var viewModel: MainViewModel
-    private lateinit var binding: ClipFragmentBinding
+    private lateinit var binding: FragmentClipBinding
     private lateinit var player: SimpleExoPlayer
 
     private lateinit var currentClip: ClipQuestion
@@ -40,7 +40,7 @@ class ClipFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        binding = ClipFragmentBinding.inflate(inflater, container, false)
+        binding = FragmentClipBinding.inflate(inflater, container, false)
 
         return binding.root
     }
@@ -55,6 +55,10 @@ class ClipFragment : Fragment() {
 
         currentClip = viewModel.clipQuestions[0]
         binding.clipQuestion = currentClip
+
+        next_button.setOnClickListener {
+
+        }
 
         initializePlayer()
     }
@@ -93,6 +97,8 @@ class ClipFragment : Fragment() {
 
     private fun onClipSelected(clipQuestion: ClipQuestion) {
 
+        scrollToTop()
+
         when {
             currentClip == clipQuestion -> {
                 if (player.isPlaying)
@@ -126,5 +132,11 @@ class ClipFragment : Fragment() {
 
         return ProgressiveMediaSource.Factory(dataSourceFactory)
             .createMediaSource(clipUri)
+    }
+
+    private fun scrollToTop() {
+        scrollView.post(Runnable {
+            scrollView.fullScroll(scrollView.top)
+        })
     }
 }

@@ -4,9 +4,9 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.paweloot.quiz.databinding.ListItemPhotoBinding
-import com.paweloot.quiz.entity.PhotoQuestion
+import com.paweloot.quiz.entity.PhotoAnswer
 
-class PhotoAdapter(private val photoQuestions: List<PhotoQuestion>) :
+class PhotoAdapter(private val photoAnswers: List<PhotoAnswer>) :
     RecyclerView.Adapter<PhotoAdapter.PhotoHolder>() {
 
 
@@ -20,10 +20,10 @@ class PhotoAdapter(private val photoQuestions: List<PhotoQuestion>) :
     }
 
     override fun onBindViewHolder(holder: PhotoHolder, position: Int) {
-        holder.binding.photoQuestion = photoQuestions[position]
+        holder.binding.photoQuestion = photoAnswers[position]
     }
 
-    override fun getItemCount() = photoQuestions.size
+    override fun getItemCount() = photoAnswers.size
 
     inner class PhotoHolder(val binding: ListItemPhotoBinding) :
         RecyclerView.ViewHolder(binding.root) {

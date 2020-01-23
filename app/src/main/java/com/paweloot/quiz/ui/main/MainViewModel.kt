@@ -7,7 +7,7 @@ import com.paweloot.quiz.questions.SoundtrackDataProvider
 
 class MainViewModel : ViewModel() {
 
-    val photoData = PhotoDataProvider.photoAnswers
+    val photoData = PhotoDataProvider.photoData
 
     val soundtrackData = SoundtrackDataProvider.soundtrackData
 

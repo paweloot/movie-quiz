@@ -7,7 +7,7 @@
 
         <variable
             name="photoQuestion"
-            type="com.paweloot.quiz.entity.PhotoAnswer" />
+            type="com.paweloot.quiz.entity.PhotoData" />
     </data>
 
     <androidx.cardview.widget.CardView

@@ -5,7 +5,7 @@ import androidx.databinding.BindingAdapter
 import androidx.swiperefreshlayout.widget.CircularProgressDrawable
 import com.bumptech.glide.Glide
 
-data class PhotoAnswer(
+data class PhotoData(
     val photoUrl: String,
     val answer: String
 )

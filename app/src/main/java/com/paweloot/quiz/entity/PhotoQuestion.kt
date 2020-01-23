@@ -1,6 +1,6 @@
 package com.paweloot.quiz.entity
 
 data class PhotoQuestion(
-    val photoAnswer: PhotoAnswer,
+    val photo: PhotoData,
     val wrongAnswers: List<String>
 )

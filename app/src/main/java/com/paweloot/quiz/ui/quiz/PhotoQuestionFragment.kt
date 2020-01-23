@@ -32,7 +32,7 @@ class PhotoQuestionFragment : Fragment() {
 
         viewModel = ViewModelProvider(this).get(QuizViewModel::class.java)
 
-        binding.photoUrl = viewModel.photoQuestion.photoAnswer.photoUrl
+        binding.photoUrl = viewModel.photoQuestion.photo.photoUrl
 
         val answers = viewModel.photoQuestion.allAnswers()
 

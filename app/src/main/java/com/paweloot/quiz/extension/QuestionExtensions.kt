@@ -6,7 +6,7 @@ import com.paweloot.quiz.entity.SoundtrackQuestion
 
 fun PhotoQuestion.allAnswers(): List<String> {
     return wrongAnswers.toMutableList().also {
-        it.add(photoAnswer.answer)
+        it.add(photo.answer)
         it.shuffle()
     }
 }

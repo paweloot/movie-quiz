@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.exoplayer2.ExoPlayerFactory
 import com.google.android.exoplayer2.SimpleExoPlayer
@@ -59,6 +60,12 @@ class ClipQuestionFragment : Fragment() {
 
     private fun onAnswerSelected(answer: String) {
         viewModel.onCLipAnswerSelected(answer)
+        navigateToPhotoResultFragment()
+    }
+
+    private fun navigateToPhotoResultFragment() {
+        findNavController()
+            .navigate(ClipQuestionFragmentDirections.actionClipQuestionFragmentToPhotoResultFragment())
     }
 
     private fun initializePlayer() {

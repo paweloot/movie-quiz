@@ -51,9 +51,9 @@ class ClipFragment : Fragment() {
         viewModel = ViewModelProviders.of(this).get(MainViewModel::class.java)
 
         clip_list.layoutManager = GridLayoutManager(context, GRID_COL_COUNT)
-        clip_list.adapter = ClipAdapter(viewModel.clipQuestions, this::onClipSelected)
+        clip_list.adapter = ClipAdapter(viewModel.clipData, this::onClipSelected)
 
-        currentClip = viewModel.clipQuestions[0]
+        currentClip = viewModel.clipData[0]
         binding.clipQuestion = currentClip
 
         next_button.setOnClickListener {

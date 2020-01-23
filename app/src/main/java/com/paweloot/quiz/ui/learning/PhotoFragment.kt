@@ -34,7 +34,7 @@ class PhotoFragment : Fragment() {
         viewModel = ViewModelProviders.of(requireActivity()).get(MainViewModel::class.java)
 
         photo_list.layoutManager = LinearLayoutManager(context)
-        photo_list.adapter = PhotoAdapter(viewModel.photoAnswers)
+        photo_list.adapter = PhotoAdapter(viewModel.photoData)
 
         next_button.setOnClickListener {
             findNavController()

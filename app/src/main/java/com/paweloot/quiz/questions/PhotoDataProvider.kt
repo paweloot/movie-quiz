@@ -3,7 +3,7 @@ package com.paweloot.quiz.questions
 import com.paweloot.quiz.entity.PhotoAnswer
 import com.paweloot.quiz.entity.PhotoQuestion
 
-object PhotoQuestionProvider {
+object PhotoDataProvider {
 
     val photoAnswers: List<PhotoAnswer> = listOf(
         PhotoAnswer(

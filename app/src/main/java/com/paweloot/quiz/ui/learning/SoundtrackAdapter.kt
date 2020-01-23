@@ -5,11 +5,11 @@ import android.view.ViewGroup
 import android.widget.ImageButton
 import androidx.recyclerview.widget.RecyclerView
 import com.paweloot.quiz.databinding.ListItemSoundtrackBinding
-import com.paweloot.quiz.entity.SoundtrackQuestion
+import com.paweloot.quiz.entity.SoundtrackData
 
 class SoundtrackAdapter(
-    private val soundtrackQuestions: List<SoundtrackQuestion>,
-    private val callback: (button: ImageButton, soundtrackQuestion: SoundtrackQuestion) -> Unit
+    private val soundtrackData: List<SoundtrackData>,
+    private val callback: (button: ImageButton, soundtrackData: SoundtrackData) -> Unit
 ) :
     RecyclerView.Adapter<SoundtrackAdapter.MusicHolder>() {
 
@@ -24,10 +24,10 @@ class SoundtrackAdapter(
     }
 
     override fun onBindViewHolder(holder: MusicHolder, position: Int) {
-        holder.binding.soundtrackQuestion = soundtrackQuestions[position]
+        holder.binding.soundtrackQuestion = soundtrackData[position]
     }
 
-    override fun getItemCount() = soundtrackQuestions.size
+    override fun getItemCount() = soundtrackData.size
 
     inner class MusicHolder(val binding: ListItemSoundtrackBinding) :
         RecyclerView.ViewHolder(binding.root) {

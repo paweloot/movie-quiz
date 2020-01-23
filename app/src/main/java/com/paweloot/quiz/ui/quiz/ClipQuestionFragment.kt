@@ -35,7 +35,7 @@ class ClipQuestionFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        viewModel = ViewModelProvider(this).get(QuizViewModel::class.java)
+        viewModel = activity?.let { ViewModelProvider(it).get(QuizViewModel::class.java) }!!
 
         val answers = viewModel.clipQuestion.allAnswers()
 

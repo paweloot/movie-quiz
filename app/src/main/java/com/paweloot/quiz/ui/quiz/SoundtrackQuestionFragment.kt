@@ -38,7 +38,7 @@ class SoundtrackQuestionFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        viewModel = ViewModelProvider(this).get(QuizViewModel::class.java)
+        viewModel = activity?.let { ViewModelProvider(it).get(QuizViewModel::class.java) }!!
 
         val answers = viewModel.soundtrackQuestion.allAnswers()
 

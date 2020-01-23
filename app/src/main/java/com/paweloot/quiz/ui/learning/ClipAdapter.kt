@@ -4,11 +4,11 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.paweloot.quiz.databinding.ListItemClipBinding
-import com.paweloot.quiz.entity.ClipQuestion
+import com.paweloot.quiz.entity.ClipData
 
 class ClipAdapter(
-    private val clipQuestions: List<ClipQuestion>,
-    private val callback: (clipQuestion: ClipQuestion) -> Unit
+    private val clipData: List<ClipData>,
+    private val callback: (clipData: ClipData) -> Unit
 ) :
     RecyclerView.Adapter<ClipAdapter.ClipHolder>() {
 
@@ -23,10 +23,10 @@ class ClipAdapter(
     }
 
     override fun onBindViewHolder(holder: ClipHolder, position: Int) {
-        holder.binding.clipQuestion = clipQuestions[position]
+        holder.binding.clipQuestion = clipData[position]
     }
 
-    override fun getItemCount() = clipQuestions.size
+    override fun getItemCount() = clipData.size
 
     inner class ClipHolder(val binding: ListItemClipBinding) :
         RecyclerView.ViewHolder(binding.root) {

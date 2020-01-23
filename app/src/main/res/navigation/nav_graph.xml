@@ -69,5 +69,18 @@
         android:id="@+id/soundtrackQuestionFragment"
         android:name="com.paweloot.quiz.ui.quiz.SoundtrackQuestionFragment"
         android:label="Quiz - Soundtrack"
-        tools:layout="@layout/fragment_soundtrack_question" />
+        tools:layout="@layout/fragment_soundtrack_question">
+        <action
+            android:id="@+id/action_soundtrackQuestionFragment_to_clipQuestionFragment"
+            app:destination="@id/clipQuestionFragment"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/clipQuestionFragment"
+        android:name="com.paweloot.quiz.ui.quiz.ClipQuestionFragment"
+        android:label="Quiz - Movie Clip"
+        tools:layout="@layout/fragment_clip_question" />
 </navigation>

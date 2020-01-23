@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.activity.addCallback
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.paweloot.quiz.databinding.FragmentSoundtrackQuestionBinding
 import com.paweloot.quiz.extension.allAnswers
@@ -42,6 +43,12 @@ class SoundtrackQuestionFragment : Fragment() {
 
     private fun onAnswerSelected(answer: String) {
         viewModel.onSoundtrackAnswerSelected(answer)
+        navigateToClipQuestion()
+    }
+
+    private fun navigateToClipQuestion() {
+        findNavController()
+            .navigate(SoundtrackQuestionFragmentDirections.actionSoundtrackQuestionFragmentToClipQuestionFragment())
     }
 
     private fun disableActionBarBackArrow() {

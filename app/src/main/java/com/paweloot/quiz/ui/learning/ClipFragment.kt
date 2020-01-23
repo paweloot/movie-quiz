@@ -15,7 +15,7 @@ import com.google.android.exoplayer2.source.ProgressiveMediaSource
 import com.google.android.exoplayer2.upstream.AssetDataSource
 import com.google.android.exoplayer2.upstream.DataSource
 import com.paweloot.quiz.databinding.FragmentClipBinding
-import com.paweloot.quiz.entity.ClipQuestion
+import com.paweloot.quiz.entity.ClipData
 import com.paweloot.quiz.ui.main.MainViewModel
 import kotlinx.android.synthetic.main.fragment_clip.*
 
@@ -31,7 +31,7 @@ class ClipFragment : Fragment() {
     private lateinit var binding: FragmentClipBinding
     private lateinit var player: SimpleExoPlayer
 
-    private lateinit var currentClip: ClipQuestion
+    private lateinit var currentClip: ClipData
     private var playWhenReady: Boolean = true
     private var playbackPosition: Long = 0
 
@@ -95,24 +95,24 @@ class ClipFragment : Fragment() {
         player.release()
     }
 
-    private fun onClipSelected(clipQuestion: ClipQuestion) {
+    private fun onClipSelected(clipData: ClipData) {
 
         scrollToTop()
 
         when {
-            currentClip == clipQuestion -> {
+            currentClip == clipData -> {
                 if (player.isPlaying)
                     stopPlayback()
 
             }
-            currentClip != clipQuestion -> {
+            currentClip != clipData -> {
                 stopPlayback()
-                currentClip = clipQuestion
+                currentClip = clipData
                 binding.clipQuestion = currentClip
             }
         }
 
-        val mediaSource = buildMediaSource(clipQuestion)
+        val mediaSource = buildMediaSource(clipData)
         startPlayback(mediaSource)
     }
 
@@ -126,8 +126,8 @@ class ClipFragment : Fragment() {
         player.playWhenReady = false
     }
 
-    private fun buildMediaSource(clipQuestion: ClipQuestion): ProgressiveMediaSource? {
-        val clipUri = Uri.parse("assets:///clips/${clipQuestion.clipAssetName}")
+    private fun buildMediaSource(clipData: ClipData): ProgressiveMediaSource? {
+        val clipUri = Uri.parse("assets:///clips/${clipData.clipAssetName}")
         val dataSourceFactory = DataSource.Factory { AssetDataSource(requireActivity()) }
 
         return ProgressiveMediaSource.Factory(dataSourceFactory)

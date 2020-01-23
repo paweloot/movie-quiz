@@ -42,7 +42,11 @@ class ClipQuestionFragment : Fragment() {
 
         binding.answerList.apply {
             layoutManager = LinearLayoutManager(context)
-            adapter = AnswerAdapter(answers, this@ClipQuestionFragment::onAnswerSelected)
+            adapter = AnswerAdapter(answers, viewModel::onClipAnswerSelected)
+        }
+
+        binding.nextButton.setOnClickListener {
+            navigateToPhotoResultFragment()
         }
     }
 
@@ -56,11 +60,6 @@ class ClipQuestionFragment : Fragment() {
         super.onPause()
         stopPlayback()
         releasePlayer()
-    }
-
-    private fun onAnswerSelected(answer: String) {
-        viewModel.onCLipAnswerSelected(answer)
-        navigateToPhotoResultFragment()
     }
 
     private fun navigateToPhotoResultFragment() {

@@ -39,7 +39,7 @@ class QuizViewModel : ViewModel() {
         )
     }
 
-    fun onCLipAnswerSelected(answer: String) {
+    fun onClipAnswerSelected(answer: String) {
         data.value = data.value?.copy(
             selectedClipAnswer = answer
         )

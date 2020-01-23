@@ -43,13 +43,17 @@ class SoundtrackQuestionFragment : Fragment() {
         val answers = viewModel.soundtrackQuestion.allAnswers()
 
         binding.answerList.layoutManager = LinearLayoutManager(context)
-        binding.answerList.adapter = AnswerAdapter(answers, this::onAnswerSelected)
+        binding.answerList.adapter = AnswerAdapter(answers, viewModel::onSoundtrackAnswerSelected)
 
         playPauseButton.setOnClickListener {
             when {
                 player.isPlaying -> stopPlayback()
                 else -> startPlayback()
             }
+        }
+
+        nextButton.setOnClickListener {
+            navigateToClipQuestion()
         }
 
         disableActionBarBackArrow()
@@ -63,11 +67,6 @@ class SoundtrackQuestionFragment : Fragment() {
     override fun onPause() {
         super.onPause()
         releasePlayer()
-    }
-
-    private fun onAnswerSelected(answer: String) {
-        viewModel.onSoundtrackAnswerSelected(answer)
-        navigateToClipQuestion()
     }
 
     private fun initializePlayer() {

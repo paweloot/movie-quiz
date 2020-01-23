@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.paweloot.quiz.databinding.FragmentPhotoQuestionBinding
 import com.paweloot.quiz.entity.Answer
@@ -55,9 +56,16 @@ class PhotoResultFragment : Fragment() {
             layoutManager = LinearLayoutManager(context)
             adapter = AnswerAdapter(resultAnswers)
         }
+
+        binding.nextButton.setOnClickListener {
+            navigateToSoundtrackQuestion()
+        }
     }
 
     private fun navigateToSoundtrackQuestion() {
-
+        findNavController()
+            .navigate(
+                PhotoResultFragmentDirections.actionPhotoResultFragmentToSoundtrackResultFragment()
+            )
     }
 }

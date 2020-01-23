@@ -85,10 +85,26 @@
         tools:layout="@layout/fragment_clip_question">
         <action
             android:id="@+id/action_clipQuestionFragment_to_photoResultFragment"
-            app:destination="@id/photoResultFragment" />
+            app:destination="@id/photoResultFragment"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/slide_out_right" />
     </fragment>
     <fragment
         android:id="@+id/photoResultFragment"
         android:name="com.paweloot.quiz.ui.result.PhotoResultFragment"
-        android:label="PhotoResultFragment" />
+        android:label="PhotoResultFragment">
+        <action
+            android:id="@+id/action_photoResultFragment_to_soundtrackResultFragment"
+            app:destination="@id/soundtrackResultFragment"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/soundtrackResultFragment"
+        android:name="com.paweloot.quiz.ui.result.SoundtrackResultFragment"
+        android:label="SoundtrackResultFragment" />
 </navigation>

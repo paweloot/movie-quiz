@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProviders
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.paweloot.quiz.databinding.FragmentPhotoQuestionBinding
@@ -30,7 +30,7 @@ class PhotoQuestionFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        viewModel = ViewModelProviders.of(this).get(QuizViewModel::class.java)
+        viewModel = ViewModelProvider(this).get(QuizViewModel::class.java)
 
         binding.photoUrl = viewModel.photoQuestion.photoAnswer.photoUrl
 

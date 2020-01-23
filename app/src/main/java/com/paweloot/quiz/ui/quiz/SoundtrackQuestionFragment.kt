@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.activity.addCallback
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProviders
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.paweloot.quiz.databinding.FragmentSoundtrackQuestionBinding
 import com.paweloot.quiz.extension.allAnswers
@@ -30,7 +30,7 @@ class SoundtrackQuestionFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        viewModel = ViewModelProviders.of(this).get(QuizViewModel::class.java)
+        viewModel = ViewModelProvider(this).get(QuizViewModel::class.java)
 
         val answers = viewModel.soundtrackQuestion.allAnswers()
 

@@ -38,13 +38,12 @@ class PhotoQuestionFragment : Fragment() {
 
         binding.answerList.apply {
             layoutManager = LinearLayoutManager(context)
-            adapter = AnswerAdapter(answers, this@PhotoQuestionFragment::onAnswerSelected)
+            adapter = AnswerAdapter(answers, viewModel::onPhotoAnswerSelected)
         }
-    }
 
-    private fun onAnswerSelected(answer: String) {
-        viewModel.onPhotoAnswerSelected(answer)
-        navigateToSoundtrackQuestion()
+        binding.nextButton.setOnClickListener {
+            navigateToSoundtrackQuestion()
+        }
     }
 
     private fun navigateToSoundtrackQuestion() {

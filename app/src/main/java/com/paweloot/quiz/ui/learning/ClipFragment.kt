@@ -1,6 +1,5 @@
 package com.paweloot.quiz.ui.learning
 
-import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -11,12 +10,10 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.google.android.exoplayer2.ExoPlayerFactory
 import com.google.android.exoplayer2.SimpleExoPlayer
 import com.google.android.exoplayer2.source.MediaSource
-import com.google.android.exoplayer2.source.ProgressiveMediaSource
-import com.google.android.exoplayer2.upstream.AssetDataSource
-import com.google.android.exoplayer2.upstream.DataSource
 import com.paweloot.quiz.databinding.FragmentClipBinding
 import com.paweloot.quiz.entity.ClipData
 import com.paweloot.quiz.ui.main.MainViewModel
+import com.paweloot.quiz.utility.PlayerUtils
 import kotlinx.android.synthetic.main.fragment_clip.*
 
 private const val GRID_COL_COUNT = 2
@@ -84,7 +81,8 @@ class ClipFragment : Fragment() {
         player.seekTo(playbackPosition)
 
         if (playbackPosition > 0) {
-            val mediaSource = buildMediaSource(currentClip)
+            val mediaSource =
+                PlayerUtils.buildMediaSource(requireContext(), currentClip.clipAssetName)
             player.prepare(mediaSource, false, false)
         }
     }
@@ -112,7 +110,8 @@ class ClipFragment : Fragment() {
             }
         }
 
-        val mediaSource = buildMediaSource(clipData)
+        val mediaSource =
+            PlayerUtils.buildMediaSource(requireContext(), currentClip.clipAssetName)
         startPlayback(mediaSource)
     }
 
@@ -121,17 +120,8 @@ class ClipFragment : Fragment() {
         player.playWhenReady = true
     }
 
-
     private fun stopPlayback() {
         player.playWhenReady = false
-    }
-
-    private fun buildMediaSource(clipData: ClipData): ProgressiveMediaSource? {
-        val clipUri = Uri.parse("assets:///clips/${clipData.clipAssetName}")
-        val dataSourceFactory = DataSource.Factory { AssetDataSource(requireActivity()) }
-
-        return ProgressiveMediaSource.Factory(dataSourceFactory)
-            .createMediaSource(clipUri)
     }
 
     private fun scrollToTop() {

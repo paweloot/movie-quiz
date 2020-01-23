@@ -9,12 +9,9 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.paweloot.quiz.databinding.FragmentSoundtrackQuestionBinding
+import com.paweloot.quiz.extension.allAnswers
 
 class SoundtrackQuestionFragment : Fragment() {
-
-    companion object {
-        fun newInstance() = SoundtrackQuestionFragment()
-    }
 
     private lateinit var viewModel: QuizViewModel
     private lateinit var binding: FragmentSoundtrackQuestionBinding
@@ -35,9 +32,7 @@ class SoundtrackQuestionFragment : Fragment() {
 
         viewModel = ViewModelProviders.of(this).get(QuizViewModel::class.java)
 
-        val answers = viewModel.randomPhotoQuestion.wrongAnswers.toMutableList()
-        answers.add(viewModel.randomPhotoQuestion.photoAnswer.answer)
-        answers.shuffle()
+        val answers = viewModel.soundtrackQuestion.allAnswers()
 
         binding.answerList.layoutManager = LinearLayoutManager(context)
         binding.answerList.adapter = AnswerAdapter(answers, this::onAnswerSelected)
@@ -46,7 +41,7 @@ class SoundtrackQuestionFragment : Fragment() {
     }
 
     private fun onAnswerSelected(answer: String) {
-        viewModel.selectedSoundtrackAnswer = answer
+        viewModel.onSoundtrackAnswerSelected(answer)
     }
 
     private fun disableActionBarBackArrow() {

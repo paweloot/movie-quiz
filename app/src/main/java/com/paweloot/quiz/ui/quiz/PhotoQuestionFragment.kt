@@ -9,12 +9,9 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.paweloot.quiz.databinding.FragmentPhotoQuestionBinding
+import com.paweloot.quiz.extension.allAnswers
 
 class PhotoQuestionFragment : Fragment() {
-
-    companion object {
-        fun newInstance() = PhotoQuestionFragment()
-    }
 
     private lateinit var viewModel: QuizViewModel
     private lateinit var binding: FragmentPhotoQuestionBinding
@@ -35,11 +32,9 @@ class PhotoQuestionFragment : Fragment() {
 
         viewModel = ViewModelProviders.of(this).get(QuizViewModel::class.java)
 
-        binding.photoUrl = viewModel.randomPhotoQuestion.photoAnswer.photoUrl
+        binding.photoUrl = viewModel.photoQuestion.photoAnswer.photoUrl
 
-        val answers = viewModel.randomPhotoQuestion.wrongAnswers.toMutableList()
-        answers.add(viewModel.randomPhotoQuestion.photoAnswer.answer)
-        answers.shuffle()
+        val answers = viewModel.photoQuestion.allAnswers()
 
         binding.answerList.apply {
             layoutManager = LinearLayoutManager(context)
@@ -48,7 +43,7 @@ class PhotoQuestionFragment : Fragment() {
     }
 
     private fun onAnswerSelected(answer: String) {
-        viewModel.selectedPhotoAnswer = answer
+        viewModel.onPhotoAnswerSelected(answer)
         navigateToSoundtrackQuestion()
     }
 

@@ -15,7 +15,6 @@ import com.paweloot.quiz.MainActivity
 import com.paweloot.quiz.R
 import com.paweloot.quiz.entity.Answer
 import com.paweloot.quiz.entity.AnswerKind
-import com.paweloot.quiz.extension.allAnswers
 import kotlinx.android.synthetic.main.fragment_quiz.*
 
 class QuizFragment : Fragment() {
@@ -51,21 +50,21 @@ class QuizFragment : Fragment() {
                     buildQuestionScreen(
                         R.string.guess_the_celebrity,
                         PictureFragment.newInstance(viewModel.photoQuestion.photo.photoUrl),
-                        viewModel.photoQuestion.allAnswers()
+                        viewModel.photoQuestion.answers
                     )
                 }
                 QuizState.QUESTION_SOUNDTRACK -> {
                     buildQuestionScreen(
                         R.string.sounds_familiar,
                         SoundFragment.newInstance(viewModel.soundtrackQuestion.soundtrack.soundtrackAssetName),
-                        viewModel.soundtrackQuestion.allAnswers()
+                        viewModel.soundtrackQuestion.answers
                     )
                 }
                 QuizState.QUESTION_CLIP -> {
                     buildQuestionScreen(
                         R.string.looks_familiar,
                         ExoPlayerFragment.newInstance(viewModel.clipQuestion.clip.clipAssetName),
-                        viewModel.clipQuestion.allAnswers()
+                        viewModel.clipQuestion.answers
                     )
                 }
                 QuizState.RESULT_PHOTO -> {
@@ -164,9 +163,9 @@ class QuizFragment : Fragment() {
 
     private fun buildResultAnswers(): List<Answer> {
         val answers = when (viewModel.quizState.value) {
-            QuizState.RESULT_PHOTO -> viewModel.photoQuestion.allAnswers()
-            QuizState.RESULT_SOUNDTRACK -> viewModel.soundtrackQuestion.allAnswers()
-            QuizState.RESULT_CLIP -> viewModel.clipQuestion.allAnswers()
+            QuizState.RESULT_PHOTO -> viewModel.photoQuestion.answers
+            QuizState.RESULT_SOUNDTRACK -> viewModel.soundtrackQuestion.answers
+            QuizState.RESULT_CLIP -> viewModel.clipQuestion.answers
             else -> throw IllegalStateException()
         }
 

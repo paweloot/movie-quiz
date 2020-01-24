@@ -2,5 +2,5 @@ package com.paweloot.quiz.entity
 
 data class ClipQuestion(
     val clip: ClipData,
-    val wrongAnswers: List<String>
+    val answers: List<String>
 )

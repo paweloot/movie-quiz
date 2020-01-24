@@ -42,15 +42,21 @@ object PhotoDataProvider {
 
     private val questions: List<PhotoQuestion> = listOf(
         PhotoQuestion(
-            photoData[3],
-            listOf("Scarlett Johansson", "Jennifer Aniston", "Emma Stone")
+            photoData.find { data -> data.answer == "Daisy Ridley" }!!,
+            listOf("Daisy Ridley", "Scarlett Johansson", "Jennifer Aniston", "Emma Stone")
         ),
         PhotoQuestion(
-            photoData[2],
-            listOf("Brad Pitt", "Henry Cavill", "Tom Hanks")
+            photoData.find { data -> data.answer == "Adam Driver" }!!,
+            listOf("Adam Driver", "Brad Pitt", "Henry Cavill", "Tom Hanks")
         )
     )
 
 
-    fun getRandomQuestion(): PhotoQuestion = questions.random()
+    fun getRandomQuestion(): PhotoQuestion {
+        val random = questions.random()
+
+        return random.copy(
+            answers = random.answers.shuffled()
+        )
+    }
 }

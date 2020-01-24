@@ -45,14 +45,20 @@ object ClipDataProvider {
 
     private val questions = listOf(
         ClipQuestion(
-            clipData[2],
-            listOf("Forrest Gump", "Gladiator", "Whiplash")
+            clipData.find { data -> data.movieTitle == "Intouchables" }!!,
+            listOf("Intouchables", "Forrest Gump", "Gladiator", "Whiplash")
         ),
         ClipQuestion(
-            clipData[0],
-            listOf("Forrest Gump", "Intouchables", "The Shawshank Redemption")
+            clipData.find { data -> data.movieTitle == "Whiplash" }!!,
+            listOf("Whiplash", "Forrest Gump", "Intouchables", "The Shawshank Redemption")
         )
     )
 
-    fun getRandomQuestion(): ClipQuestion = questions.random()
+    fun getRandomQuestion(): ClipQuestion {
+        val random = questions.random()
+
+        return random.copy(
+            answers = random.answers.shuffled()
+        )
+    }
 }

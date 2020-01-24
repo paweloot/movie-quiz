@@ -45,14 +45,20 @@ object SoundtrackDataProvider {
 
     private val questions: List<SoundtrackQuestion> = listOf(
         SoundtrackQuestion(
-            soundtrackData[4],
-            listOf("Shallow", "City of Stars", "Let It Go")
+            soundtrackData.findLast { data -> data.soundtrackTitle == "Toss A Coin To Your Witcher" }!!,
+            listOf("Toss A Coin To Your Witcher", "Shallow", "City of Stars", "Let It Go")
         ),
         SoundtrackQuestion(
-            soundtrackData[0],
-            listOf("The Time Of My Life", "Shallow", "Let It Go")
+            soundtrackData.findLast { data -> data.soundtrackTitle == "City of Stars" }!!,
+            listOf("City of Stars", "The Time Of My Life", "Shallow", "Let It Go")
         )
     )
 
-    fun getRandomQuestion(): SoundtrackQuestion = questions.random()
+    fun getRandomQuestion(): SoundtrackQuestion {
+        val random = questions.random()
+
+        return random.copy(
+            answers = random.answers.shuffled()
+        )
+    }
 }

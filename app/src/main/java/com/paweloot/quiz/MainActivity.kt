@@ -30,12 +30,12 @@ class MainActivity : AppCompatActivity() {
 
     fun showLeaveQuizDialog() {
         val alert = AlertDialog.Builder(this)
-            .setMessage("Are you sure you want to leave the quiz?")
-            .setPositiveButton("Yes") { dialogInterface, _ ->
+            .setMessage(getString(R.string.leave_quiz_dialog_msg))
+            .setPositiveButton(getString(R.string.button_yes)) { dialogInterface, _ ->
                 dialogInterface.dismiss()
                 navController.navigateUp()
             }
-            .setNegativeButton("No") { dialogInterface, _ ->
+            .setNegativeButton(getString(R.string.button_no)) { dialogInterface, _ ->
                 dialogInterface.dismiss()
             }
 

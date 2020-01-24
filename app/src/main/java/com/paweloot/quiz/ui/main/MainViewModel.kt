@@ -1,9 +1,9 @@
 package com.paweloot.quiz.ui.main
 
 import androidx.lifecycle.ViewModel
-import com.paweloot.quiz.questions.ClipDataProvider
-import com.paweloot.quiz.questions.PhotoDataProvider
-import com.paweloot.quiz.questions.SoundtrackDataProvider
+import com.paweloot.quiz.data.ClipDataProvider
+import com.paweloot.quiz.data.PhotoDataProvider
+import com.paweloot.quiz.data.SoundtrackDataProvider
 
 class MainViewModel : ViewModel() {
 

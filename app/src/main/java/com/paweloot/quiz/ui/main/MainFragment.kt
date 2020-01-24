@@ -38,7 +38,7 @@ class MainFragment : Fragment() {
 
         start_quiz_button.setOnClickListener {
             findNavController()
-                .navigate(MainFragmentDirections.actionMainFragmentToPhotoQuestionFragment())
+                .navigate(MainFragmentDirections.actionMainFragmentToQuestionFragment())
         }
     }
 }

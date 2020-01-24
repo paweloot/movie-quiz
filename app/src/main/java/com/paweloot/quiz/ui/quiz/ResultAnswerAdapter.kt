@@ -1,4 +1,4 @@
-package com.paweloot.quiz.ui.result
+package com.paweloot.quiz.ui.quiz
 
 import android.view.LayoutInflater
 import android.view.View
@@ -10,8 +10,8 @@ import com.paweloot.quiz.entity.Answer
 import com.paweloot.quiz.entity.AnswerKind
 import kotlinx.android.synthetic.main.list_item_answer.view.*
 
-class AnswerAdapter(private val answers: List<Answer>) :
-    RecyclerView.Adapter<AnswerAdapter.AnswerHolder>() {
+class ResultAnswerAdapter(private val answers: List<Answer>) :
+    RecyclerView.Adapter<ResultAnswerAdapter.AnswerHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AnswerHolder {
         val inflater = LayoutInflater.from(parent.context)

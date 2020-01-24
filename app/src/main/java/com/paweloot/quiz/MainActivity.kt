@@ -23,10 +23,6 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onSupportNavigateUp(): Boolean {
-        if (navController.currentDestination?.id == R.id.soundtrackQuestionFragment) {
-            return true
-        }
-
         navController.navigateUp()
         return true
     }

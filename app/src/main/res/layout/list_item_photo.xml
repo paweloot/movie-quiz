@@ -40,7 +40,7 @@
                 tools:text="Brad Pitt" />
 
             <ImageView
-                android:id="@+id/photo"
+                android:id="@+id/mediaFragmentContainer"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_marginBottom="8dp"

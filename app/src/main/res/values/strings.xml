@@ -11,4 +11,7 @@
     <string name="start_quiz">Start quiz</string>
     <string name="looks_familiar">Looks familiar?</string>
     <string name="button_next">Next</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="no_answer_selected_toast">Select an answer to continue</string>
 </resources>

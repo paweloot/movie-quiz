@@ -1,4 +1,4 @@
-package com.paweloot.quiz.questions
+package com.paweloot.quiz.data
 
 import com.paweloot.quiz.entity.ClipData
 import com.paweloot.quiz.entity.ClipQuestion

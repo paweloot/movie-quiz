@@ -196,6 +196,6 @@ class QuizFragment : Fragment() {
 
     private fun navigateToMenu() {
         findNavController()
-            .navigate(QuestionFragmentDirections.actionQuestionFragmentToMainFragment())
+            .navigate(QuizFragmentDirections.actionQuestionFragmentToMainFragment())
     }
 }

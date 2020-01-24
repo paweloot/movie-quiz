@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.google.android.exoplayer2.ExoPlayerFactory
 import com.google.android.exoplayer2.SimpleExoPlayer
@@ -53,8 +54,9 @@ class ClipFragment : Fragment() {
         currentClip = viewModel.clipData[0]
         binding.clipQuestion = currentClip
 
-        next_button.setOnClickListener {
-
+        takeQuizButton.setOnClickListener {
+            findNavController()
+                .navigate(ClipFragmentDirections.actionClipFragmentToQuestionFragment())
         }
 
         initializePlayer()

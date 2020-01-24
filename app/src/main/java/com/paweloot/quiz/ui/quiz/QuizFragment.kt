@@ -5,11 +5,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.activity.addCallback
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.paweloot.quiz.MainActivity
 import com.paweloot.quiz.R
 import com.paweloot.quiz.entity.Answer
 import com.paweloot.quiz.entity.AnswerKind
@@ -24,6 +26,10 @@ class QuizFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
+        requireActivity().onBackPressedDispatcher.addCallback(this) {
+            (requireActivity() as MainActivity).showLeaveQuizDialog()
+        }
 
         return inflater.inflate(R.layout.fragment_quiz, container, false)
     }
@@ -196,6 +202,6 @@ class QuizFragment : Fragment() {
 
     private fun navigateToMenu() {
         findNavController()
-            .navigate(QuizFragmentDirections.actionQuestionFragmentToMainFragment())
+            .navigate(QuizFragmentDirections.actionQuizFragmentToMainFragment())
     }
 }

@@ -3,12 +3,17 @@ package com.paweloot.quiz.ui.learning
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.paweloot.quiz.database.CelebrityPhoto
 import com.paweloot.quiz.databinding.ListItemPhotoBinding
-import com.paweloot.quiz.model.PhotoData
 
-class PhotoAdapter(private val photoData: List<PhotoData>) :
+class PhotoAdapter :
     RecyclerView.Adapter<PhotoAdapter.PhotoHolder>() {
 
+    var photoData: List<CelebrityPhoto> = emptyList()
+        set(value) {
+            field = value
+            notifyDataSetChanged()
+        }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PhotoHolder {
 
@@ -20,7 +25,7 @@ class PhotoAdapter(private val photoData: List<PhotoData>) :
     }
 
     override fun onBindViewHolder(holder: PhotoHolder, position: Int) {
-        holder.binding.photoQuestion = photoData[position]
+        holder.binding.celebrityPhoto = photoData[position]
     }
 
     override fun getItemCount() = photoData.size

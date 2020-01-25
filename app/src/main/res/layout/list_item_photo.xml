@@ -6,8 +6,8 @@
     <data>
 
         <variable
-            name="photoQuestion"
-            type="com.paweloot.quiz.model.PhotoData" />
+            name="celebrityPhoto"
+            type="com.paweloot.quiz.database.CelebrityPhoto" />
     </data>
 
     <androidx.cardview.widget.CardView
@@ -31,7 +31,7 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginEnd="16dp"
                 android:layout_marginBottom="8dp"
-                android:text="@{photoQuestion.answer}"
+                android:text="@{celebrityPhoto.celebrityName}"
                 android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
                 android:textSize="20sp"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -46,7 +46,7 @@
                 android:layout_marginBottom="8dp"
                 android:contentDescription="@string/photo_description"
                 android:scaleType="centerCrop"
-                app:imageUrl="@{photoQuestion.photoUrl}"
+                app:imageByteArray="@{celebrityPhoto.bitmapByteArray}"
                 app:layout_constraintBottom_toTopOf="@+id/soundtrackTitle"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"

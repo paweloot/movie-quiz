@@ -1,4 +1,4 @@
-package com.paweloot.quiz.entity
+package com.paweloot.quiz.model
 
 import android.widget.ImageView
 import androidx.databinding.BindingAdapter

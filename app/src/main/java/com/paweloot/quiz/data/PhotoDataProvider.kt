@@ -1,7 +1,7 @@
 package com.paweloot.quiz.data
 
-import com.paweloot.quiz.entity.PhotoData
-import com.paweloot.quiz.entity.PhotoQuestion
+import com.paweloot.quiz.model.PhotoData
+import com.paweloot.quiz.model.PhotoQuestion
 
 object PhotoDataProvider {
 

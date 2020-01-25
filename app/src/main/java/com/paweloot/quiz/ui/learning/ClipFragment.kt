@@ -12,7 +12,7 @@ import com.google.android.exoplayer2.ExoPlayerFactory
 import com.google.android.exoplayer2.SimpleExoPlayer
 import com.google.android.exoplayer2.source.MediaSource
 import com.paweloot.quiz.databinding.FragmentClipBinding
-import com.paweloot.quiz.entity.ClipData
+import com.paweloot.quiz.model.ClipData
 import com.paweloot.quiz.ui.main.MainViewModel
 import com.paweloot.quiz.utility.PlayerUtils
 import kotlinx.android.synthetic.main.fragment_clip.*

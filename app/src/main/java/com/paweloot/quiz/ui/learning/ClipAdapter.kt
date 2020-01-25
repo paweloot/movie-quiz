@@ -4,7 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.paweloot.quiz.databinding.ListItemClipBinding
-import com.paweloot.quiz.entity.ClipData
+import com.paweloot.quiz.model.ClipData
 
 class ClipAdapter(
     private val clipData: List<ClipData>,

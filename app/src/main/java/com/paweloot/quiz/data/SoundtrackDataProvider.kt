@@ -1,7 +1,7 @@
 package com.paweloot.quiz.data
 
-import com.paweloot.quiz.entity.SoundtrackData
-import com.paweloot.quiz.entity.SoundtrackQuestion
+import com.paweloot.quiz.model.SoundtrackData
+import com.paweloot.quiz.model.SoundtrackQuestion
 
 object SoundtrackDataProvider {
 

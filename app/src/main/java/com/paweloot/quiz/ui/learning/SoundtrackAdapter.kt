@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import android.widget.ImageButton
 import androidx.recyclerview.widget.RecyclerView
 import com.paweloot.quiz.databinding.ListItemSoundtrackBinding
-import com.paweloot.quiz.entity.SoundtrackData
+import com.paweloot.quiz.model.SoundtrackData
 
 class SoundtrackAdapter(
     private val soundtrackData: List<SoundtrackData>,

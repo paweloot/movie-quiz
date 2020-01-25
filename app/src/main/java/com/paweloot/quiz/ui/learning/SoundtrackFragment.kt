@@ -13,7 +13,7 @@ import com.google.android.exoplayer2.ExoPlayerFactory
 import com.google.android.exoplayer2.SimpleExoPlayer
 import com.google.android.exoplayer2.source.MediaSource
 import com.paweloot.quiz.R
-import com.paweloot.quiz.entity.SoundtrackData
+import com.paweloot.quiz.model.SoundtrackData
 import com.paweloot.quiz.ui.main.MainViewModel
 import com.paweloot.quiz.utility.PlayerUtils
 import kotlinx.android.synthetic.main.fragment_soundtrack.*

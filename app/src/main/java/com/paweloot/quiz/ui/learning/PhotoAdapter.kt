@@ -4,7 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.paweloot.quiz.databinding.ListItemPhotoBinding
-import com.paweloot.quiz.entity.PhotoData
+import com.paweloot.quiz.model.PhotoData
 
 class PhotoAdapter(private val photoData: List<PhotoData>) :
     RecyclerView.Adapter<PhotoAdapter.PhotoHolder>() {

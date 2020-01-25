@@ -5,9 +5,9 @@ import androidx.lifecycle.ViewModel
 import com.paweloot.quiz.data.ClipDataProvider
 import com.paweloot.quiz.data.PhotoDataProvider
 import com.paweloot.quiz.data.SoundtrackDataProvider
-import com.paweloot.quiz.entity.ClipQuestion
-import com.paweloot.quiz.entity.PhotoQuestion
-import com.paweloot.quiz.entity.SoundtrackQuestion
+import com.paweloot.quiz.model.ClipQuestion
+import com.paweloot.quiz.model.PhotoQuestion
+import com.paweloot.quiz.model.SoundtrackQuestion
 
 object QuizState {
     const val QUESTION_PHOTO = 0

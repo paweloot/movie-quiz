@@ -1,7 +1,7 @@
 package com.paweloot.quiz.data
 
-import com.paweloot.quiz.entity.ClipData
-import com.paweloot.quiz.entity.ClipQuestion
+import com.paweloot.quiz.model.ClipData
+import com.paweloot.quiz.model.ClipQuestion
 
 object ClipDataProvider {
 

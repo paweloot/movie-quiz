@@ -7,7 +7,7 @@
 
         <variable
             name="clipQuestion"
-            type="com.paweloot.quiz.entity.ClipData" />
+            type="com.paweloot.quiz.model.ClipData" />
     </data>
 
     <ScrollView

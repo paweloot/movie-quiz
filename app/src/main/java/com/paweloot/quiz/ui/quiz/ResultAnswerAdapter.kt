@@ -6,8 +6,8 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.card.MaterialCardView
 import com.paweloot.quiz.R
-import com.paweloot.quiz.entity.Answer
-import com.paweloot.quiz.entity.AnswerKind
+import com.paweloot.quiz.model.Answer
+import com.paweloot.quiz.model.AnswerKind
 import kotlinx.android.synthetic.main.list_item_answer.view.*
 
 class ResultAnswerAdapter(private val answers: List<Answer>) :

@@ -1,4 +1,4 @@
-package com.paweloot.quiz.entity
+package com.paweloot.quiz.model
 
 data class ClipQuestion(
     val clip: ClipData,

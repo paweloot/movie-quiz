@@ -13,8 +13,8 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.paweloot.quiz.MainActivity
 import com.paweloot.quiz.R
-import com.paweloot.quiz.entity.Answer
-import com.paweloot.quiz.entity.AnswerKind
+import com.paweloot.quiz.model.Answer
+import com.paweloot.quiz.model.AnswerKind
 import kotlinx.android.synthetic.main.fragment_quiz.*
 
 class QuizFragment : Fragment() {

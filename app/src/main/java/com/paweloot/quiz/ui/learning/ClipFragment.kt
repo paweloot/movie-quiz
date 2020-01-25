@@ -48,6 +48,7 @@ class ClipFragment : Fragment() {
 
         viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
 
+        clip_list.isNestedScrollingEnabled = false
         clip_list.layoutManager = GridLayoutManager(context, GRID_COL_COUNT)
         clip_list.adapter = ClipAdapter(viewModel.clipData, this::onClipSelected)
 

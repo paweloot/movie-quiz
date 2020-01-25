@@ -45,6 +45,7 @@ class SoundtrackFragment : Fragment() {
 
         viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
 
+        soundtrack_list.isNestedScrollingEnabled = false
         soundtrack_list.layoutManager = LinearLayoutManager(context)
         soundtrack_list.adapter =
             SoundtrackAdapter(viewModel.soundtrackData, this::onSoundtrackClicked)

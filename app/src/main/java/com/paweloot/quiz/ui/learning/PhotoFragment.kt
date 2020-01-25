@@ -29,6 +29,7 @@ class PhotoFragment : Fragment() {
 
         viewModel = ViewModelProvider(this).get(PhotoViewModel::class.java)
 
+        photo_list.isNestedScrollingEnabled = false
         photo_list.layoutManager = LinearLayoutManager(context)
         photo_list.adapter = PhotoAdapter()
 

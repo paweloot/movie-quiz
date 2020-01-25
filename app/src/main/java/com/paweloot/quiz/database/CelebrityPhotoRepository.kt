@@ -1,4 +1,4 @@
-package com.paweloot.quiz.model
+package com.paweloot.quiz.database
 
 import android.app.Application
 import android.graphics.Bitmap
@@ -8,8 +8,7 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.request.target.CustomTarget
 import com.bumptech.glide.request.transition.Transition
 import com.paweloot.quiz.data.PhotoDataProvider
-import com.paweloot.quiz.database.CelebrityPhoto
-import com.paweloot.quiz.database.PhotoDatabaseDao
+import com.paweloot.quiz.model.CelebrityPhoto
 import java.io.ByteArrayOutputStream
 import java.util.concurrent.Executors
 

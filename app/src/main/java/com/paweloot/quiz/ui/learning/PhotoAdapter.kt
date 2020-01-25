@@ -3,8 +3,8 @@ package com.paweloot.quiz.ui.learning
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.paweloot.quiz.database.CelebrityPhoto
 import com.paweloot.quiz.databinding.ListItemPhotoBinding
+import com.paweloot.quiz.model.CelebrityPhoto
 
 class PhotoAdapter :
     RecyclerView.Adapter<PhotoAdapter.PhotoHolder>() {

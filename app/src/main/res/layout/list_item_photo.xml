@@ -7,7 +7,7 @@
 
         <variable
             name="celebrityPhoto"
-            type="com.paweloot.quiz.database.CelebrityPhoto" />
+            type="com.paweloot.quiz.model.CelebrityPhoto" />
     </data>
 
     <androidx.cardview.widget.CardView

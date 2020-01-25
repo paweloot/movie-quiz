@@ -16,4 +16,6 @@
     <string name="leave_quiz_dialog_msg">Are you sure you want to leave the quiz?</string>
     <string name="button_yes">Yes</string>
     <string name="button_no">No</string>
+    <string name="movie_posters_collage">Movie posters collage</string>
+    <string name="menu_title">Movie Quiz</string>
 </resources>

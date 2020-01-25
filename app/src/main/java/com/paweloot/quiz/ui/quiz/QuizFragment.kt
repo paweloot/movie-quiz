@@ -1,5 +1,6 @@
 package com.paweloot.quiz.ui.quiz
 
+import android.app.AlertDialog
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -103,7 +104,16 @@ class QuizFragment : Fragment() {
                 when (viewModel.quizState.value) {
                     QuizState.QUESTION_PHOTO -> changeStateTo(QuizState.QUESTION_SOUNDTRACK)
                     QuizState.QUESTION_SOUNDTRACK -> changeStateTo(QuizState.QUESTION_CLIP)
-                    QuizState.QUESTION_CLIP -> changeStateTo(QuizState.RESULT_PHOTO)
+                    QuizState.QUESTION_CLIP -> {
+                        val correctAnswers = countCorrectAnswers()
+
+                        val dialog = AlertDialog.Builder(context)
+                            .setMessage("You scored $correctAnswers out of 3!")
+                            .setPositiveButton("See results") { _, _ ->
+                                changeStateTo(QuizState.RESULT_PHOTO)
+                            }
+                        dialog.show()
+                    }
                     QuizState.RESULT_PHOTO -> changeStateTo(QuizState.RESULT_SOUNDTRACK)
                     QuizState.RESULT_SOUNDTRACK -> changeStateTo(QuizState.RESULT_CLIP)
                     QuizState.RESULT_CLIP -> navigateToMenu()
@@ -193,6 +203,26 @@ class QuizFragment : Fragment() {
                 }
             )
         }
+    }
+
+    private fun countCorrectAnswers(): Int {
+        var counter = 0
+        viewModel.photoQuestion.photo.answer.also {
+            if (it == viewModel.selectedPhotoAnswer)
+                counter++
+        }
+
+        viewModel.soundtrackQuestion.soundtrack.soundtrackTitle.also {
+            if (it == viewModel.selectedSoundtrackAnswer)
+                counter++
+        }
+
+        viewModel.clipQuestion.clip.movieTitle.also {
+            if (it == viewModel.selectedClipAnswer)
+                counter++
+        }
+
+        return counter
     }
 
     private fun changeStateTo(newState: Int) {

@@ -10,6 +10,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.exoplayer2.ExoPlayerFactory
+import com.google.android.exoplayer2.Player
 import com.google.android.exoplayer2.SimpleExoPlayer
 import com.google.android.exoplayer2.source.MediaSource
 import com.paweloot.quiz.R
@@ -73,6 +74,18 @@ class SoundtrackFragment : Fragment() {
         player = ExoPlayerFactory.newSimpleInstance(requireContext())
         player.playWhenReady = playWhenReady
         player.seekTo(playbackPosition)
+
+        player.addListener(object : Player.EventListener {
+            override fun onPlayerStateChanged(playWhenReady: Boolean, playbackState: Int) {
+                when (playbackState) {
+                    Player.STATE_ENDED -> {
+                        stopPlayback()
+                        playbackPosition = 0
+                        player.seekTo(playbackPosition)
+                    }
+                }
+            }
+        })
     }
 
     private fun releasePlayer() {

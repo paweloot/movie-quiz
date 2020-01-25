@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.google.android.exoplayer2.ExoPlayerFactory
+import com.google.android.exoplayer2.Player
 import com.google.android.exoplayer2.SimpleExoPlayer
 import com.paweloot.quiz.R
 import com.paweloot.quiz.utility.PlayerUtils
@@ -49,6 +50,16 @@ class SoundFragment : Fragment() {
     private fun initializePlayer() {
         player = ExoPlayerFactory.newSimpleInstance(context)
         player.playWhenReady = false
+
+        player.addListener(object : Player.EventListener {
+            override fun onPlayerStateChanged(playWhenReady: Boolean, playbackState: Int) {
+                when (playbackState) {
+                    Player.STATE_ENDED -> {
+                        stopPlayback()
+                    }
+                }
+            }
+        })
     }
 
     private fun releasePlayer() {
